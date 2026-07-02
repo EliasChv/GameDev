@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bgkmllekljpfp"
+path.s3tc="res://.godot/imported/cat_0.png-0d1765716a75b59d1d87c8c8d294dd7d.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "3c0649a24eb7495cdbe2086bc123abf3"
+}
+
+[deps]
+
+source_file="res://blockbench_models/cat_0.png"
+dest_files=["res://.godot/imported/cat_0.png-0d1765716a75b59d1d87c8c8d294dd7d.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

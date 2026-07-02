@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=3 uid="uid://qpnvknm2l3ns"]
+
+[ext_resource type="Script" uid="uid://dfko4q42oq3ja" path="res://Cat.cs" id="1_r0du0"]
+[ext_resource type="Texture2D" uid="uid://cajkl0xwfw2iq" path="res://assets/graycat.png" id="2_lgr22"]
+[ext_resource type="PackedScene" uid="uid://bk33sla2hxlep" path="res://truck.tscn" id="2_uu6xs"]
+[ext_resource type="Texture2D" uid="uid://8b208rofoaud" path="res://assets/orangecat.png" id="3_trn2v"]
+[ext_resource type="Texture2D" uid="uid://cgkweyjcaxo0y" path="res://assets/whitecat.png" id="4_03owx"]
+[ext_resource type="FontFile" uid="uid://dulbkx30is4pt" path="res://fonts/gamefont.ttf" id="4_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://cuk0jgvxu345e" path="res://scenes/Cat.tscn" id="5_3dxm6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lgr22"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_trn2v"]
+sky_material = SubResource("ProceduralSkyMaterial_lgr22")
+
+[sub_resource type="Environment" id="Environment_03owx"]
+background_mode = 2
+sky = SubResource("Sky_trn2v")
+tonemap_mode = 2
+ssao_enabled = true
+fog_density = 0.15
+volumetric_fog_emission_energy = 1024.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uu6xs"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_r0du0")
+CatTexture = [ExtResource("2_lgr22"), ExtResource("3_trn2v"), ExtResource("4_03owx")]
+
+[node name="Cat" parent="." instance=ExtResource("5_3dxm6")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_03owx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_uu6xs")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0.8, 1.5)
+
+[node name="blockbench_export3" parent="." instance=ExtResource("2_uu6xs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64088, 2.14198, 5.50641)
+visible = false
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 400.0
+offset_top = 100.0
+offset_right = 762.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("4_cm0pq")
+theme_override_font_sizes/font_size = 32
+text = "OIIA Crossing The Road"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -104.0
+offset_right = 20.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="left" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+text = "<"
+
+[node name="Button4" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+text = "Start"
+
+[node name="right" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+text = ">"
